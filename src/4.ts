@@ -11,11 +11,7 @@ class Key {
 }
 
 class Person {
-  private key: Key;
-
-  constructor(key: Key) {
-    this.key = key;
-  }
+  constructor(private key: Key) {}
 
   getKey(): Key {
     return this.key;
@@ -36,7 +32,7 @@ abstract class House {
     if (this.door) {
       this.tenants.push(person);
     } else {
-      throw new Error("The door is closed!");
+       console.log("The door is closed!");
     }
   }
 
@@ -48,7 +44,7 @@ class MyHouse extends House {
     if (key.getSignature() === this.key.getSignature()) {
       this.door = true;
     } else {
-      throw new Error("Wrong key!");
+       console.log("Wrong key!");
     }
   }
 }
